@@ -106,7 +106,7 @@ namespace TextEditor.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(EditorPage));
             }
             ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", doc.UserId);
             return View(doc);
@@ -151,7 +151,7 @@ namespace TextEditor.Controllers
             }
 
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(EditorPage));
         }
 
         private bool DocExists(int id)
